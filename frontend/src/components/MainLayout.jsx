@@ -5,9 +5,9 @@ import LeftSidebar from './LeftSidebar'
 
 const MainLayout = () => {
   return (
-    <div className=' bg-white text-black'>
+    <div className=' '>
          <LeftSidebar/>
-        <div className='  bg-white text-black'>
+        <div className='  '>
             <Outlet/>
         </div>
     </div>

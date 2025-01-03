@@ -37,13 +37,15 @@ const Profile = () => {
           <section>
             <div className='flex flex-col gap-5'>
               <div className='flex items-center gap-2'>
-                <span className='font-extrabold text-3xl'>{userProfile?.username}</span>
+                <span className='font-extrabold text-3xl text-[#F8A4A4]'>{userProfile?.username}</span>
                 {
                   isLoggedInUserProfile ? (
                     <>
-                      <Link to="/account/edit"><Button variant='secondary' className='hover:bg-gray-200 h-8 pl-7 ml-10'>Edit profile</Button></Link>
-                      {/* <Button variant='secondary' className='hover:bg-gray-200 h-8'>View archive</Button>
-                      <Button variant='secondary' className='hover:bg-gray-200 h-8'>Ad tools</Button> */}
+                      <Link to="/account/edit">
+                        <Button variant='secondary' className='hover:bg-[#F8C7C7] h-8 pl-7 ml-10'>
+                          Edit profile
+                        </Button>
+                      </Link>
                     </>
                   ) : (
                     isFollowing ? (
@@ -52,7 +54,7 @@ const Profile = () => {
                         <Button variant='secondary' className='h-8'>Message</Button>
                       </>
                     ) : (
-                      <Button className='bg-[#0095F6] hover:bg-[#3192d2] h-8'>Follow</Button>
+                      <Button className='bg-[#FF8A65] hover:bg-[#FF6B3E] h-8'>Follow</Button>
                     )
                   )
                 }
@@ -64,24 +66,23 @@ const Profile = () => {
               </div>
               <div className='flex flex-col gap-1'>
                 <span className='font-semibold'>{userProfile?.bio || 'bio here...'}</span>
-                <Badge className='w-fit' variant='secondary'><AtSign /> <span className='pl-1'>{userProfile?.username}</span> </Badge>
+                <Badge className='w-fit' variant='secondary'>
+                  <AtSign /> <span className='pl-1'>{userProfile?.username}</span>
+                </Badge>
                 <span>welcome to my profile</span>
-                {/* <span>🤯Turing code into fun</span>
-                <span>🤯DM for collaboration</span> */}
               </div>
             </div>
           </section>
         </div>
-        <div className='border-t border-t-gray-200'>
+        <div className='border-t border-t-[#F8C7C7]'>
           <div className='flex items-center justify-center gap-10 text-sm'>
-            <span className={`py-3 cursor-pointer ${activeTab === 'posts' ? 'font-bold' : ''}`} onClick={() => handleTabChange('posts')}>
+            <span className={`py-3 cursor-pointer ${activeTab === 'posts' ? 'font-bold text-[#FF8A65]' : ''}`} onClick={() => handleTabChange('posts')}>
               POSTS
             </span>
-            <span className={`py-3 cursor-pointer ${activeTab === 'saved' ? 'font-bold' : ''}`} onClick={() => handleTabChange('saved')}>
+            <span className={`py-3 cursor-pointer ${activeTab === 'saved' ? 'font-bold text-[#FF8A65]' : ''}`} onClick={() => handleTabChange('saved')}>
               SAVED
             </span>
             <span className='py-3 cursor-pointer'>REELS</span>
-            {/* <span className='py-3 cursor-pointer'>TAGS</span> */}
           </div>
           <div className='grid grid-cols-3 gap-1'>
             {
@@ -91,11 +92,11 @@ const Profile = () => {
                     <img src={post.image} alt='postimage' className='rounded-sm my-2 w-full aspect-square object-cover' />
                     <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
                       <div className='flex items-center text-white space-x-4'>
-                        <button className='flex items-center gap-2 hover:text-gray-300'>
+                        <button className='flex items-center gap-2 hover:text-[#FF8A65]'>
                           <Heart />
                           <span>{post?.likes.length}</span>
                         </button>
-                        <button className='flex items-center gap-2 hover:text-gray-300'>
+                        <button className='flex items-center gap-2 hover:text-[#FF8A65]'>
                           <MessageCircle />
                           <span>{post?.comments.length}</span>
                         </button>

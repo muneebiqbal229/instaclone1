@@ -16,11 +16,13 @@ const RightSidebar = () => {
           </Avatar>
         </Link>
         <div>
-          <h1 className='font-semibold text-sm'><Link to={`/profile/${user?._id}`}>{user?.username}</Link></h1>
-          <span className='text-gray-600 text-sm'>{user?.bio || 'Bio here...'}</span>
+          <h1 className='font-semibold text-sm text-[#FF8A65]'>
+            <Link to={`/profile/${user?._id}`}>{user?.username}</Link>
+          </h1>
+          <span className='text-[#F8A4A4] text-sm'>{user?.bio || 'Bio here...'}</span>
         </div>
       </div>
-      <SuggestedUsers/>
+      <SuggestedUsers />
     </div>
   )
 }

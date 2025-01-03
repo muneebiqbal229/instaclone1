@@ -93,14 +93,14 @@ const Video = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white text-black overflow-auto hide-scrollbar">
-      <div className="overflow-y-scroll h-screen snap-y hide-scrollbar bg-white text-black snap-mandatory">
+    <div className="max-w-2xl mx-auto  overflow-auto hide-scrollbar">
+      <div className="overflow-y-scroll h-screen snap-y hide-scrollbar  snap-mandatory">
         {Array.isArray(posts) && posts.length > 0 ? (
           posts.map((post, index) => (
-            <div key={post._id} className="relative snap-center h-screen flex items-center justify-center  bg-white text-black">
+            <div key={post._id} className="relative snap-center h-screen flex items-center justify-center  ">
               <video
                 src={post.url}
-                className="w-full h-full object-contain  overflow-auto hide-scrollbar bg-white text-black"
+                className="w-full h-full object-contain  overflow-auto hide-scrollbar "
                 controls={false}
                 ref={(el) => (videoRefs.current[index] = el)}
                 onError={(e) => console.error("Error loading video:", e.target.src)}

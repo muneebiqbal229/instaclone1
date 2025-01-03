@@ -54,44 +54,47 @@ const CreatePost = ({ open, setOpen }) => {
   }
 
   return (
-    <Dialog open={open} className="bg-white text-black">
-      <DialogContent onInteractOutside={() => setOpen(false)}>
-        <DialogHeader className='text-center font-semibold bg-white text-black'>Create New Post</DialogHeader>
-        <div className='flex gap-3 items-center bg-white text-black'>
+    <Dialog open={open} className="bg-gradient-to-r from-pink-100 to-peach-200">
+      <DialogContent onInteractOutside={() => setOpen(false)} className="p-4">
+        <DialogHeader className='text-center font-semibold text-pink-600'>Create New Post</DialogHeader>
+        <div className='flex gap-3 items-center'>
           <Avatar>
             <AvatarImage src={user?.profilePicture} alt="img" />
-            <AvatarFallback></AvatarFallback>
+            <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-          <div className='bg-white text-black'>
-            <h1 className='font-semibold text-xs bg-white text-black'>{user?.username}</h1>
-            <span className=' text-xs bg-white text-black'>Bio here...</span>
+          <div>
+            <h1 className='font-semibold text-xs text-pink-600'>{user?.username}</h1>
+            <span className='text-xs text-gray-600'>Bio here...</span>
           </div>
         </div>
-        <Textarea value={caption} onChange={(e) => setCaption(e.target.value)} className="focus-visible:ring-transparent border-none" placeholder="Write a caption..." />
-        {
-          imagePreview && (
-            <div className='w-full h-64 flex items-center justify-center'>
-              <img src={imagePreview} alt="preview_img" className='object-cover h-full w-full rounded-md' />
-            </div>
-          )
-        }
+        <Textarea value={caption} onChange={(e) => setCaption(e.target.value)} className="focus-visible:ring-transparent border-none mt-3" placeholder="Write a caption..." />
+        
+        {imagePreview && (
+          <div className='w-full h-64 flex items-center justify-center mt-4'>
+            <img src={imagePreview} alt="preview_img" className='object-cover h-full w-full rounded-md' />
+          </div>
+        )}
+
         <input ref={imageRef} type='file' className='hidden' onChange={fileChangeHandler} />
-        <Button onClick={() => imageRef.current.click()} className='w-fit mx-auto bg-[#0095F6] hover:bg-[#258bcf] '>Select from computer</Button>
-        {
-          imagePreview && (
-            loading ? (
-              <Button>
-                <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                Please wait
-              </Button>
-            ) : (
-              <Button onClick={createPostHandler} type="submit" className="w-full">Post</Button>
-            )
+        <Button onClick={() => imageRef.current.click()} className='w-fit mx-auto bg-[#0095F6] hover:bg-[#258bcf] mt-4'>
+          Select from computer
+        </Button>
+
+        {imagePreview && (
+          loading ? (
+            <Button className='mt-4'>
+              <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+              Please wait
+            </Button>
+          ) : (
+            <Button onClick={createPostHandler} type="submit" className="w-full bg-pink-600 text-white hover:bg-pink-700 mt-4">
+              Post
+            </Button>
           )
-        }
+        )}
       </DialogContent>
     </Dialog>
   )
 }
 
-export default CreatePost
+export default CreatePost;

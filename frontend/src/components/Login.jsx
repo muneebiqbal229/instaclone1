@@ -14,7 +14,7 @@ const Login = () => {
         password: ""
     });
     const [loading, setLoading] = useState(false);
-    const {user} = useSelector(store=>store.auth);
+    const { user } = useSelector(store => store.auth);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const Login = () => {
         setInput({ ...input, [e.target.name]: e.target.value });
     }
 
-    const signupHandler = async (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
         try {
             setLoading(true);
@@ -49,53 +49,57 @@ const Login = () => {
         }
     }
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             navigate("/");
         }
-    },[])
+    }, [user, navigate]);
+
     return (
-        <div className='flex items-center w-screen h-screen justify-center bg-black text-white '>
-            <form onSubmit={signupHandler} className='shadow-lg flex flex-col gap-5 p-8  border-blue-50 '>
-                <div className='my-4  border-gray-200'>
-                    <h1 className='text-center font-bold text-xl'><img src="logo.png" alt=",nj"  className='w-[10vw] items-center text-center border-gray-300 pb-5'/></h1>
-                    <p className='text-sm text-center'>Login to see photos & videos from your friends</p>
+        <div className='flex items-center w-screen h-screen justify-center bg-gradient-to-r from-pink-100 to-peach-200'>
+            <form onSubmit={loginHandler} className='shadow-lg flex flex-col gap-5 p-8 w-[30vw] bg-white rounded-lg border border-gray-300'>
+                <div className='my-4'>
+                    <h1 className='text-center font-bold text-2xl text-pink-600'>
+                        <img src="logo.png" alt="Logo" className='w-[10vw] mx-auto' />
+                    </h1>
+                    <p className='text-sm text-center text-gray-600'>Join today with friends</p>
                 </div>
                 <div>
-                    <span className='font-medium'>Email</span>
+                    <span className='font-medium text-pink-600'>Email</span>
                     <Input
                         type="email"
                         name="email"
                         value={input.email}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2 text-black"
+                        className="focus-visible:ring-transparent my-2 text-black border-2 border-pink-200 rounded px-3 py-2"
                     />
                 </div>
                 <div>
-                    <span className='font-medium'>Password</span>
+                    <span className='font-medium text-pink-600'>Password</span>
                     <Input
                         type="password"
                         name="password"
                         value={input.password}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2 text-black"
+                        className="focus-visible:ring-transparent my-2 text-black border-2 border-pink-200 rounded px-3 py-2"
                     />
                 </div>
                 {
                     loading ? (
-                        <Button>
+                        <Button className='bg-pink-500 text-white hover:bg-pink-600'>
                             <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                             Please wait
                         </Button>
                     ) : (
-                        <Button type='submit'>Login</Button>
+                        <Button type='submit' className='bg-pink-500 text-white hover:bg-pink-600'>
+                            Login
+                        </Button>
                     )
                 }
-
-                <span className='text-center'>Dosent have an account? <Link to="/signup" className='text-blue-600'>Signup</Link></span>
+                <span className='text-center text-sm text-gray-600'>Doesn't have an account? <Link to="/signup" className='text-pink-600 hover:underline'>Signup</Link></span>
             </form>
         </div>
     )
 }
 
-export default Login
+export default Login;

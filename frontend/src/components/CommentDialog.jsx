@@ -59,7 +59,7 @@ const CommentDialog = ({ open, setOpen }) => {
 
   return (
     <Dialog open={open}>
-      <DialogContent onInteractOutside={() => setOpen(false)} className="max-w-5xl p-0 flex flex-col">
+      <DialogContent onInteractOutside={() => setOpen(false)} className="max-w-5xl p-0 flex flex-col bg-gradient-to-r from-pink-100 to-peach-200">
         <div className='flex flex-1'>
           <div className='w-1/2'>
             <img
@@ -78,8 +78,7 @@ const CommentDialog = ({ open, setOpen }) => {
                   </Avatar>
                 </Link>
                 <div>
-                  <Link className='font-semibold text-xs'>{selectedPost?.author?.username}</Link>
-                  {/* <span className='text-gray-600 text-sm'>Bio here...</span> */}
+                  <Link className='font-semibold text-xs text-pink-600'>{selectedPost?.author?.username}</Link>
                 </div>
               </div>
 
@@ -106,7 +105,9 @@ const CommentDialog = ({ open, setOpen }) => {
             <div className='p-4'>
               <div className='flex items-center gap-2'>
                 <input type="text" value={text} onChange={changeEventHandler} placeholder='Add a comment...' className='w-full outline-none border text-sm border-gray-300 p-2 rounded' />
-                <Button disabled={!text.trim()} onClick={sendMessageHandler} variant="outline">Send</Button>
+                <Button disabled={!text.trim()} onClick={sendMessageHandler} variant="outline" className='bg-pink-500 text-white hover:bg-pink-600'>
+                  Send
+                </Button>
               </div>
             </div>
           </div>
@@ -116,4 +117,4 @@ const CommentDialog = ({ open, setOpen }) => {
   )
 }
 
-export default CommentDialog
+export default CommentDialog;

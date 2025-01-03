@@ -40,22 +40,22 @@ const ChatPage = () => {
     },[]);
 
     return (
-        <div className='flex ml-[16%] h-screen'>
+        <div className='flex ml-[16%] h-screen bg-gradient-to-r from-pink-100 to-peach-200'>
             <section className='w-full md:w-1/4 my-8'>
-                <h1 className='font-bold mb-4 px-3 text-xl'>{user?.username}</h1>
+                <h1 className='font-bold mb-4 px-3 text-xl text-pink-600'>{user?.username}</h1>
                 <hr className='mb-4 border-gray-300' />
                 <div className='overflow-y-auto h-[80vh]'>
                     {
                         suggestedUsers.map((suggestedUser) => {
                             const isOnline = onlineUsers.includes(suggestedUser?._id);
                             return (
-                                <div onClick={() => dispatch(setSelectedUser(suggestedUser))} className='flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer'>
+                                <div onClick={() => dispatch(setSelectedUser(suggestedUser))} className='flex gap-3 items-center p-3 hover:bg-pink-50 cursor-pointer'>
                                     <Avatar className='w-14 h-14'>
                                         <AvatarImage src={suggestedUser?.profilePicture} />
                                         <AvatarFallback>CN</AvatarFallback>
                                     </Avatar>
                                     <div className='flex flex-col'>
-                                        <span className='font-medium'>{suggestedUser?.username}</span>
+                                        <span className='font-medium text-pink-600'>{suggestedUser?.username}</span>
                                         <span className={`text-xs font-bold ${isOnline ? 'text-green-600' : 'text-red-600'} `}>{isOnline ? 'online' : 'offline'}</span>
                                     </div>
                                 </div>
@@ -63,7 +63,6 @@ const ChatPage = () => {
                         })
                     }
                 </div>
-
             </section>
             {
                 selectedUser ? (
@@ -74,20 +73,22 @@ const ChatPage = () => {
                                 <AvatarFallback>CN</AvatarFallback>
                             </Avatar>
                             <div className='flex flex-col'>
-                                <span>{selectedUser?.username}</span>
+                                <span className='text-pink-600'>{selectedUser?.username}</span>
                             </div>
                         </div>
                         <Messages selectedUser={selectedUser} />
                         <div className='flex items-center p-4 border-t border-t-gray-300'>
                             <Input value={textMessage} onChange={(e) => setTextMessage(e.target.value)} type="text" className='flex-1 mr-2 focus-visible:ring-transparent' placeholder="Messages..." />
-                            <Button onClick={() => sendMessageHandler(selectedUser?._id)}>Send</Button>
+                            <Button onClick={() => sendMessageHandler(selectedUser?._id)} className='bg-pink-500 text-white hover:bg-pink-600'>
+                                Send
+                            </Button>
                         </div>
                     </section>
                 ) : (
                     <div className='flex flex-col items-center justify-center mx-auto'>
-                        <MessageCircleCode className='w-32 h-32 my-4' />
-                        <h1 className='font-medium'>Your messages</h1>
-                        <span>Send a message to start a chat.</span>
+                        <MessageCircleCode className='w-32 h-32 my-4 text-pink-500' />
+                        <h1 className='font-medium text-pink-600'>Your messages</h1>
+                        <span className='text-gray-600'>Send a message to start a chat.</span>
                     </div>
                 )
             }
@@ -95,4 +96,4 @@ const ChatPage = () => {
     )
 }
 
-export default ChatPage
+export default ChatPage;

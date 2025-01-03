@@ -50,52 +50,54 @@ const LeftSidebar = () => {
             navigate("/chat");
         } else if (textType === 'upload'){
             setDialogOpen(true);  // Open the upload reel dialog
-            
         } else if (textType === 'Explore' ){
             navigate("/video");
         }
     }
 
     const sidebarItems = [
-        { icon: <Home />, text: "Home" },
-        { icon: <LuUpload />, text: "upload" },
-        { icon: <PiVideoBold />, text: "Explore" },
-        { icon: <MessageCircle />, text: "Messages" },
-        { icon: <Heart />, text: "Notifications" },
-        { icon: <PlusSquare />, text: "Create" },
+        { icon: <Home className='text-[#]' />, text: "Home" },
+        { icon: <LuUpload className='text-[#]' />, text: "upload" },
+        { icon: <PiVideoBold className='text-[#]' />, text: "Explore" },
+        { icon: <MessageCircle className='text-[#]' />, text: "Messages" },
+        { icon: <Heart className='text-[#]' />, text: "Notifications" },
+        { icon: <PlusSquare className='text-[' />, text: "Create" },
         {
             icon: (
-                <Avatar className='w-6 h-6'>
+                <Avatar className='w-8 h-8'>
                     <AvatarImage src={user?.profilePicture} alt="@shadcn" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             ),
             text: "Profile"
         },
-        { icon: <LogOut />, text: "Logout" },
+        { icon: <LogOut className='text-[#]' />, text: "Logout" },
     ]
 
     return (
-        <div className='fixed top-0 z-10 left-0 px-4 border-r  border-gray-300 w-[16%] h-screen '>
-            <div className='flex flex-col'>
-                <h1 className='my-8 pl-3 font-bold text-xl'>Tiktok</h1>
-                <div>
+        <div className='fixed top-0 left-0 z-10 w-[20%] h-screen bg-gradient-to-b from-[#FF8A65] to-[#FF7043] shadow-lg rounded-lg'>
+            <div className='flex flex-col p-6'>
+                <h1 className='my-8 pl-3 font-bold text-2xl text-white'>Tiktok</h1>
+                <div className='space-y-4'>
                     {
                         sidebarItems.map((item, index) => {
                             return (
-                                <div onClick={() => sidebarHandler(item.text)} key={index} className='flex items-center gap-3 relative hover:bg-gray-500  cursor-pointer rounded-lg p-3 my-3 '>
+                                <div 
+                                    onClick={() => sidebarHandler(item.text)} 
+                                    key={index} 
+                                    className='flex items-center gap-4 p-3 rounded-lg cursor-pointer hover:bg-[#FF6F47] transition-all duration-200 ease-in-out'>
                                     {item.icon}
-                                    <span>{item.text}</span>
+                                    <span className='text-white font-medium'>{item.text}</span>
                                     {
                                         item.text === "Notifications" && likeNotification.length > 0 && (
                                             <Popover>
                                                 <PopoverTrigger asChild>
-                                                    <Button size='icon' className="rounded-full h-5 w-5 bg-red-600 hover:bg-red-600 absolute bottom-6 left-6">{likeNotification.length}</Button>
+                                                    <Button size='icon' className="rounded-full h-5 w-5 bg-red-600 hover:bg-red-600 absolute top-3 right-3">{likeNotification.length}</Button>
                                                 </PopoverTrigger>
                                                 <PopoverContent>
                                                     <div>
                                                         {
-                                                            likeNotification.length === 0 ? (<p>No new notification</p>) : (
+                                                            likeNotification.length === 0 ? (<p className='text-sm text-gray-700'>No new notifications</p>) : (
                                                                 likeNotification.map((notification) => {
                                                                     return (
                                                                         <div key={notification.userId} className='flex items-center gap-2 my-2'>
@@ -103,7 +105,9 @@ const LeftSidebar = () => {
                                                                                 <AvatarImage src={notification.userDetails?.profilePicture} />
                                                                                 <AvatarFallback>CN</AvatarFallback>
                                                                             </Avatar>
-                                                                            <p className='text-sm'><span className='font-bold'>{notification.userDetails?.username}</span> liked your post</p>
+                                                                            <p className='text-sm text-gray-700'>
+                                                                                <span className='font-bold'>{notification.userDetails?.username}</span> liked your post
+                                                                            </p>
                                                                         </div>
                                                                     )
                                                                 })
@@ -126,7 +130,6 @@ const LeftSidebar = () => {
 
             {/* Dialog for Upload Reel */}
             <UploadReel isDialogOpen={isDialogOpen} setDialogOpen={setDialogOpen} />
-
         </div>
     )
 }
