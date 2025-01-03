@@ -37,13 +37,13 @@ const Profile = () => {
           <section>
             <div className='flex flex-col gap-5'>
               <div className='flex items-center gap-2'>
-                <span>{userProfile?.username}</span>
+                <span className='font-extrabold text-3xl'>{userProfile?.username}</span>
                 {
                   isLoggedInUserProfile ? (
                     <>
-                      <Link to="/account/edit"><Button variant='secondary' className='hover:bg-gray-200 h-8'>Edit profile</Button></Link>
-                      <Button variant='secondary' className='hover:bg-gray-200 h-8'>View archive</Button>
-                      <Button variant='secondary' className='hover:bg-gray-200 h-8'>Ad tools</Button>
+                      <Link to="/account/edit"><Button variant='secondary' className='hover:bg-gray-200 h-8 pl-7 ml-10'>Edit profile</Button></Link>
+                      {/* <Button variant='secondary' className='hover:bg-gray-200 h-8'>View archive</Button>
+                      <Button variant='secondary' className='hover:bg-gray-200 h-8'>Ad tools</Button> */}
                     </>
                   ) : (
                     isFollowing ? (
@@ -65,9 +65,9 @@ const Profile = () => {
               <div className='flex flex-col gap-1'>
                 <span className='font-semibold'>{userProfile?.bio || 'bio here...'}</span>
                 <Badge className='w-fit' variant='secondary'><AtSign /> <span className='pl-1'>{userProfile?.username}</span> </Badge>
-                <span>🤯Learn code with patel mernstack style</span>
-                <span>🤯Turing code into fun</span>
-                <span>🤯DM for collaboration</span>
+                <span>welcome to my profile</span>
+                {/* <span>🤯Turing code into fun</span>
+                <span>🤯DM for collaboration</span> */}
               </div>
             </div>
           </section>
@@ -81,7 +81,7 @@ const Profile = () => {
               SAVED
             </span>
             <span className='py-3 cursor-pointer'>REELS</span>
-            <span className='py-3 cursor-pointer'>TAGS</span>
+            {/* <span className='py-3 cursor-pointer'>TAGS</span> */}
           </div>
           <div className='grid grid-cols-3 gap-1'>
             {

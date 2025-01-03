@@ -13,6 +13,8 @@ import { setSocket } from './redux/socketSlice'
 import { setOnlineUsers } from './redux/chatSlice'
 import { setLikeNotification } from './redux/rtnSlice'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import Video from './components/Video'
+import UploadReel from './components/CreateVideo'
 
 
 const browserRouter = createBrowserRouter([
@@ -36,6 +38,11 @@ const browserRouter = createBrowserRouter([
         path: '/chat',
         element: <ProtectedRoutes><ChatPage /></ProtectedRoutes>
       },
+      {
+        path:'/video',
+        element: <Video />
+      },
+      
     ]
   },
   {
@@ -46,6 +53,8 @@ const browserRouter = createBrowserRouter([
     path: '/signup',
     element: <Signup />
   },
+  
+ 
 ])
 
 function App() {
@@ -55,7 +64,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io('http://localhost:8000', {
+      const socketio = io('http://localhost:3000', {
         query: {
           userId: user?._id
         },

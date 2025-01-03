@@ -35,7 +35,7 @@ const CreatePost = ({ open, setOpen }) => {
     if (imagePreview) formData.append("image", file);
     try {
       setLoading(true);
-      const res = await axios.post('https://instaclone-g9h5.onrender.com/api/v1/post/addpost', formData, {
+      const res = await axios.post('http://localhost:3000/api/v1/post/addpost', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -54,17 +54,17 @@ const CreatePost = ({ open, setOpen }) => {
   }
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} className="bg-white text-black">
       <DialogContent onInteractOutside={() => setOpen(false)}>
-        <DialogHeader className='text-center font-semibold'>Create New Post</DialogHeader>
-        <div className='flex gap-3 items-center'>
+        <DialogHeader className='text-center font-semibold bg-white text-black'>Create New Post</DialogHeader>
+        <div className='flex gap-3 items-center bg-white text-black'>
           <Avatar>
             <AvatarImage src={user?.profilePicture} alt="img" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback></AvatarFallback>
           </Avatar>
-          <div>
-            <h1 className='font-semibold text-xs'>{user?.username}</h1>
-            <span className='text-gray-600 text-xs'>Bio here...</span>
+          <div className='bg-white text-black'>
+            <h1 className='font-semibold text-xs bg-white text-black'>{user?.username}</h1>
+            <span className=' text-xs bg-white text-black'>Bio here...</span>
           </div>
         </div>
         <Textarea value={caption} onChange={(e) => setCaption(e.target.value)} className="focus-visible:ring-transparent border-none" placeholder="Write a caption..." />

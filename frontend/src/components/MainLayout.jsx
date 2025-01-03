@@ -1,12 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import LeftSidebar from './LeftSidebar'
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className=' bg-white text-black'>
          <LeftSidebar/>
-        <div>
+        <div className='  bg-white text-black'>
             <Outlet/>
         </div>
     </div>

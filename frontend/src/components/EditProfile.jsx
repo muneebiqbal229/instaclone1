@@ -42,7 +42,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true);
-            const res = await axios.post('https://instaclone-g9h5.onrender.com/api/v1/user/profile/edit', formData,{
+            const res = await axios.post('http://localhost:3000/api/v1/user/profile/edit', formData,{
                 headers:{
                     'Content-Type':'multipart/form-data'
                 },
@@ -68,7 +68,7 @@ const EditProfile = () => {
         }
     }
     return (
-        <div className='flex max-w-2xl mx-auto pl-10'>
+        <div className='flex max-w-2xl mx-auto pl-10 bg-black text-white'>
             <section className='flex flex-col gap-6 w-full my-8'>
                 <h1 className='font-bold text-xl'>Edit Profile</h1>
                 <div className='flex items-center justify-between bg-gray-100 rounded-xl p-4'>

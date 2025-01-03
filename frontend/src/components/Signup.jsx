@@ -25,7 +25,7 @@ const Signup = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post('https://instaclone-g9h5.onrender.com/api/v1/user/register', input, {
+            const res = await axios.post('http://localhost:3000/api/v1/user/register', input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -54,10 +54,10 @@ const Signup = () => {
         }
     },[])
     return (
-        <div className='flex items-center w-screen h-screen justify-center'>
+        <div className='flex items-center w-screen h-screen justify-center  bg-black text-white'>
             <form onSubmit={signupHandler} className='shadow-lg flex flex-col gap-5 p-8'>
                 <div className='my-4'>
-                    <h1 className='text-center font-bold text-xl'>LOGO</h1>
+                    <h1 className='text-center font-bold text-xl'><img src="logo.png " className='w-[10vw] pb-5' alt="" /></h1>
                     <p className='text-sm text-center'>Signup to see photos & videos from your friends</p>
                 </div>
                 <div>
@@ -67,7 +67,7 @@ const Signup = () => {
                         name="username"
                         value={input.username}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="focus-visible:ring-transparent my-2 text-black"
                     />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ const Signup = () => {
                         name="email"
                         value={input.email}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="focus-visible:ring-transparent my-2 text-black"
                     />
                 </div>
                 <div>
@@ -87,7 +87,7 @@ const Signup = () => {
                         name="password"
                         value={input.password}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="focus-visible:ring-transparent my-2 text-black"
                     />
                 </div>
                 {

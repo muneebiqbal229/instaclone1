@@ -7,6 +7,7 @@ import userRoute from "./routes/user.route.js";
 import postRoute from "./routes/post.route.js";
 import messageRoute from "./routes/message.route.js";
 import { app, server } from "./socket/socket.js";
+import videoRoutes from './routes/video.route.js'
 import path from "path";
  
 dotenv.config();
@@ -21,15 +22,17 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 const corsOptions = {
-    origin: process.env.URL,
-    credentials: true
-}
+    origin: 'http://localhost:5173', // Allow your frontend's origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true, // If you're using cookies or authorization headers
+  };
 app.use(cors(corsOptions));
 
 // yha pr apni api ayengi
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/post", postRoute);
 app.use("/api/v1/message", messageRoute);
+app.use('/api/videos', videoRoutes);
 
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));

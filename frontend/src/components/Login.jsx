@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post('https://instaclone-g9h5.onrender.com/api/v1/user/login', input, {
+            const res = await axios.post('http://localhost:3000/api/v1/user/login', input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -55,10 +55,10 @@ const Login = () => {
         }
     },[])
     return (
-        <div className='flex items-center w-screen h-screen justify-center'>
-            <form onSubmit={signupHandler} className='shadow-lg flex flex-col gap-5 p-8'>
-                <div className='my-4'>
-                    <h1 className='text-center font-bold text-xl'>LOGO</h1>
+        <div className='flex items-center w-screen h-screen justify-center bg-black text-white '>
+            <form onSubmit={signupHandler} className='shadow-lg flex flex-col gap-5 p-8  border-blue-50 '>
+                <div className='my-4  border-gray-200'>
+                    <h1 className='text-center font-bold text-xl'><img src="logo.png" alt=",nj"  className='w-[10vw] items-center text-center border-gray-300 pb-5'/></h1>
                     <p className='text-sm text-center'>Login to see photos & videos from your friends</p>
                 </div>
                 <div>
@@ -68,7 +68,7 @@ const Login = () => {
                         name="email"
                         value={input.email}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="focus-visible:ring-transparent my-2 text-black"
                     />
                 </div>
                 <div>
@@ -78,7 +78,7 @@ const Login = () => {
                         name="password"
                         value={input.password}
                         onChange={changeEventHandler}
-                        className="focus-visible:ring-transparent my-2"
+                        className="focus-visible:ring-transparent my-2 text-black"
                     />
                 </div>
                 {
