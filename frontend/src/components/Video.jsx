@@ -53,7 +53,7 @@ const Video = () => {
 
   const handleLike = async (postId) => {
     try {
-      await axios.put(`http://localhost:3000/api/videos/${postId}/like`);
+      await axios.put(`https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net/api/videos/${postId}/like`);
     } catch (error) {
       console.error("Error liking post:", error);
     }
@@ -61,7 +61,7 @@ const Video = () => {
 
   const handleDislike = async (postId) => {
     try {
-      await axios.put(`http://localhost:3000/api/videos/${postId}/dislike`);
+      await axios.put(`https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net/api/videos/${postId}/dislike`);
     } catch (error) {
       console.error("Error disliking post:", error);
     }
@@ -69,7 +69,7 @@ const Video = () => {
 
   const handleBookmark = async (postId) => {
     try {
-      await axios.put(`http://localhost:3000/api/videos/${postId}/bookmark`);
+      await axios.put(`https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net/api/videos/${postId}/bookmark`);
     } catch (error) {
       console.error("Error bookmarking post:", error);
     }
@@ -82,7 +82,7 @@ const Video = () => {
 
   const handleCommentSubmit = async () => {
     try {
-      await axios.post(`http://localhost:3000/api/videos/${currentPostId}/comments`, {
+      await axios.post(`https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net/api/videos/${currentPostId}/comments`, {
         text: newComment,
       });
       setNewComment("");

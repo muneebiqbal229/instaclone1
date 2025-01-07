@@ -43,7 +43,7 @@ const UploadReel = ({ isDialogOpen, setDialogOpen }) => {
 
     try {
       setLoading(true);
-      const response = await axios.post("https://mern-azure-web-h4ashbdzdtg0amhr.eastus-01.azurewebsites.net/api/videos/upload", formData, {
+      const response = await axios.post("https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net/api/videos/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

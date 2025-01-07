@@ -35,7 +35,7 @@ const CreatePost = ({ open, setOpen }) => {
     if (imagePreview) formData.append("image", file);
     try {
       setLoading(true);
-      const res = await axios.post('https://mern-azure-web-h4ashbdzdtg0amhr.eastus-01.azurewebsites.net/api/v1/post/addpost', formData, {
+      const res = await axios.post('https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net/api/v1/post/addpost', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },

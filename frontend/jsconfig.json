@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       // ...
-      "baseUrl": "https://mern-azure-web-h4ashbdzdtg0amhr.eastus-01.azurewebsites.net",
+      "baseUrl": "https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net",
       "paths": {
         "@/*": [
           "./src/*"
