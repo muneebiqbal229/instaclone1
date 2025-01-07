@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post('http://localhost:3000/api/v1/user/login', input, {
+            const res = await axios.post('https://mern-azure-web-h4ashbdzdtg0amhr.eastus-01.azurewebsites.net/api/v1/user/login', input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

@@ -14,7 +14,7 @@ const Video = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/videos/videos");
+        const response = await axios.get("https://mern-azure-web-h4ashbdzdtg0amhr.eastus-01.azurewebsites.net/api/videos/videos");
         console.log("Response Data:", response.data);
         if (response.data.success) {
           setPosts(response.data.posts || []);
