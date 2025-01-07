@@ -22,11 +22,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow your frontend's origin
-    origin:"https:pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true, // If you're using cookies or authorization headers
-  };
+    origin: 'http://mern-azure-web-h4ashbdzdtg0amhr.eastus-01.azurewebsites.net', // Match protocol
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+};
+
+  
 app.use(cors(corsOptions));
 
 // yha pr apni api ayengi

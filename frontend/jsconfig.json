@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       // ...
-      "baseUrl": "https://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net",
+      "baseUrl": "http://pr1-ctabe6djgpardecr.ukwest-01.azurewebsites.net",
       "paths": {
         "@/*": [
           "./src/*"
